@@ -18,9 +18,11 @@ func InitRouter(enable_log bool) *iris.Application {
 		// ctx.StatusCode(200)
 		ctx.WriteString("OK")
 	})
+
 	userOpt := app.Party("/user")
 	{
-		userOpt.Get("", v1.SaveInfo)
+		userOpt.Post("/get", v1.SaveInfo)
 	}
+
 	return app
 }

@@ -1,10 +1,15 @@
 package main
 
-
-import "github.com/kataras/iris/v12"
+import (
+	"fmt"
+	"github.com/kataras/iris/v12"
+	"queue/models"
+)
 
 func main() {
-
+	if err:= models.InitDB();err != nil{
+		fmt.Println("连接数据库失败！")
+	}
 	app := iris.Default()
 	app.Use(myMiddleware)
 
